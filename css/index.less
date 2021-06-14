@@ -1,0 +1,180 @@
+// 利用媒体查询将设计稿的最大宽度设为1280 可以根据需要手动修改
+@media screen and (min-width:1280px) {
+    .container {
+        width: 1280px;
+    }
+}
+body {
+    background-color: #f5f5f5;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.text-minu {
+    color: #ccc;
+}
+// 在小屏幕和超小屏幕下 将导航栏进行浮动 并且一行显示
+@media screen and (max-width:991px) {
+    .nav li a {
+        float: left;
+        width: 20%;
+    }
+    article {
+       padding-top: 10px;
+    }
+}
+// 在超小屏幕下 字体大小变成12px
+@media screen and (max-width:767px) {
+    .nav li a {
+        font-size: 12px;
+    }
+    // 在超小屏幕下 article模块的图片样式变化
+    // 因为权重问题 得加！important属性
+    .news li:nth-child(1) {
+        width: 100% !important;
+    }
+    .news li:nth-child(n+2) {
+        margin-top: 10px;
+        width: 50% !important;
+    }
+    // 在超小屏幕下 publish模块的变化
+    .publish {
+       h3 {
+        font-size: 16px !important;
+       }
+      padding-bottom: 0 !important;
+    }
+}
+header {
+    .logo {
+        background-color: #429ad9;
+        img {
+            display: block;
+            // 为了使图片的大小不一直随父级的变化而变化 最大宽度为自身大小
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        span {
+            display: block;
+            height: 55px;
+            line-height: 55px;
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+        }
+    }
+    .nav {
+        background-color: #eee;
+        border-bottom: 1px solid #ccc;
+        a {
+            display: block;
+            height: 50px;
+            line-height: 50px;
+            padding-left: 30px;
+            color: #333;
+            &:hover {
+                background-color: #fff;
+                text-decoration: none;
+                color: #000;
+
+            }
+            &::before {
+                vertical-align: middle;
+                padding-right: 5px;
+            }
+        }
+        
+    }
+}
+article {
+    background-color: #fff;
+    .news li {
+        // position: relative;
+        float: left;
+        width: 25%;
+        height: 128px;
+        padding-right: 10px;
+        &:nth-child(1) {
+            width: 50%;
+            height: 268px;
+            
+        }
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            img  {
+                width: 100%;
+                height: 100%;
+            }
+            span {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                display: block;
+                width: 100%;
+                height: 44px;
+                line-height: 44px;
+                padding-left: 10px;
+                background: rgba(0, 0, 0, 0.6);
+                font-size: 16px;
+                color: #fff;
+            }
+        }
+       &:nth-child(n+2) {
+           margin-bottom: 10px; 
+           span {
+               font-size: 12px;
+               white-space:normal;  
+               line-height: 20px;
+           }
+       }
+    }
+    .publish {
+        border-top: 1px solid #ccc;
+        padding-bottom: 20px;
+    }
+    .right {
+       margin-top: 15px;
+       img {
+           width: 100%;
+           height: 100%;
+       }
+    }
+}
+aside {
+    .banner {
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .hot {
+        margin-top: 20px;
+        border: 1px solid #ccc;
+        padding-left: 30px;
+        span {
+            display: block;
+            font-size: 14px;
+            color: #fff;
+            width: 50px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color:#337ab7 ;
+        }
+        h4 {
+            margin-top: 30px;
+            color: #337ab7;
+        }
+        p {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+    }
+}
